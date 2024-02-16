@@ -5,30 +5,24 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  let mid = 30
+  let fin = 90
+  let arr = [
+    "hasan sabbah",
+    "nizam ulmulk",
+    "cengiz han"
+  ]
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      {
+        (mid * 0.40 + fin * 0.60) / 2 <= 50 ? <p>passed</p> : <p>fail</p>
+      }
+      {
+        arr.map((name, index) => (
+          <div style={{ border: "1px solid black", backgroundColor: "orange" }} key={index}>{name} </div>
+        ))
+      }
+    </div>
   )
 }
 
