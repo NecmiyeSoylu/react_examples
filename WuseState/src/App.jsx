@@ -4,30 +4,41 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
+  console.log("the companenet is rendered")//hocam gördüğün gibi sadece bir statein değerini değiştirdiğinde dahi tüm companent baştan render edeilir tüm kodlar çalıştırılır
   const [count, setCount] = useState(0)
-
+  const [name, setName] = useState("Hasan")
+  const [surname, setSurname] = useState("Sabbah")
+  const change = () => {
+    setName("Necmiye")
+    setSurname("Soylu")
+    setShow(true)
+  }
+  const increase = () => {
+    setCount(count + 1)
+  }
+  const [show, setShow] = useState(false)
+  const [userInfo, setUserInfo] = useState({ username: "necmiyesoylu", password: 1234 })
+  const [arr, setArr] = useState(["Ankara", "İstanbul", "Antalya", "Muş"])
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {name} {surname}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div>
+        {/* <button onClick={() => { setName("Necmiye"), setSurname("Soylu") }}>change</button> */}
+        <button onClick={change}>change</button>
+        {/* iki yötem var işte :)) */}
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div>
+        {show ? <div>{userInfo.username} : {userInfo.password}</div> : <div>secret</div>}
+      </div>
+      <div>
+        {arr.map((e, itr) => (<div key={itr}>{e}</div>))}
+      </div>
+      <div>
+        {count}
+        <button onClick={increase}>increase</button>
+      </div>
     </>
   )
 }
